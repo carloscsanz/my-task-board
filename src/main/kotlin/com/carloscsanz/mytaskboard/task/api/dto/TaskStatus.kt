@@ -1,6 +1,6 @@
 package com.carloscsanz.mytaskboard.task.api.dto
 
-import com.carloscsanz.mytaskboard.task.domain.Task.Status
+import com.carloscsanz.mytaskboard.task.domain.TaskStatus as DomainTaskStatus
 
 enum class TaskStatus {
     DONE,
@@ -9,11 +9,11 @@ enum class TaskStatus {
     TO_DO;
 
     companion object {
-        fun fromDomain(status: Status): TaskStatus = when (status) {
-            Status.TO_DO -> TO_DO
-            Status.IN_PROGRESS -> IN_PROGRESS
-            Status.DONE -> DONE
-            Status.WONT_DO -> WONT_DO
+        fun fromDomain(status: DomainTaskStatus): TaskStatus = when (status) {
+            DomainTaskStatus.TO_DO -> TO_DO
+            DomainTaskStatus.IN_PROGRESS -> IN_PROGRESS
+            DomainTaskStatus.DONE -> DONE
+            DomainTaskStatus.WONT_DO -> WONT_DO
         }
     }
 }

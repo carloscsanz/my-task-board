@@ -1,20 +1,10 @@
 package com.carloscsanz.mytaskboard.task.domain
 
 class Task(
-    val name: Name,
-    val description: Description,
-    val status: Status,
+    val name: TaskName,
+    val description: TaskDescription,
+    val status: TaskStatus,
 ) {
-    @JvmInline
-    value class Name(val value: String)
-
-    @JvmInline
-    value class Description(val value: String)
-
-    enum class Status {
-        TO_DO,
-        IN_PROGRESS,
-        DONE,
-        WONT_DO;
-    }
+    constructor(name: String, description: String, status: String) :
+            this(TaskName(name), TaskDescription(description), TaskStatus.valueOf(status))
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 object InMemoryTaskRepository : TaskRepository {
-    private val database = listOf(
+    private val database = mutableListOf(
         Task("Task in Progress", "", "IN_PROGRESS"),
         Task("Task Completed", "", "DONE"),
         Task("Task Won't Do", "", "WONT_DO"),
@@ -13,4 +13,6 @@ object InMemoryTaskRepository : TaskRepository {
     )
 
     override fun findAll(): Set<Task> = database.toSet()
+
+    override fun create(task: Task) = database.addLast(task)
 }

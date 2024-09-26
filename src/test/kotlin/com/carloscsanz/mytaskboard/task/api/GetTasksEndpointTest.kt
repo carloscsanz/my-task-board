@@ -44,6 +44,6 @@ class GetTasksEndpointTest(
         mockMvc
             .perform(get("/tasks"))
             .andExpect(status().isOk())
-            .andExpect(content().json(expected, true));
+            .andExpect(content().json(expected, true))
     }
 }

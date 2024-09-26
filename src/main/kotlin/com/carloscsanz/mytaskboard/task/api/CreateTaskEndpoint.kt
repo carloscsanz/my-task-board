@@ -22,7 +22,7 @@ class CreateTaskEndpoint(
     @ResponseStatus(HttpStatus.CREATED)
     fun createTask(
         @RequestBody
-        task: TaskDto
+        task: TaskDto,
     ) {
         val entity = Task(task.name, task.description, task.status.name)
 

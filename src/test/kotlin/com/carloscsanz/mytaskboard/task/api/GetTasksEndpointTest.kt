@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @SpringBootTest
 @AutoConfigureMockMvc
 class GetTasksEndpointTest(
-    @Autowired private val mockMvc: MockMvc
+    @Autowired private val mockMvc: MockMvc,
 ) {
     @Test
     fun `should retrieve all the the tasks`() {

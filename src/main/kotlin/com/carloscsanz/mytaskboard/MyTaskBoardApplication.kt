@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class MyTaskBoardApplication
 
 fun main(args: Array<String>) {
-	runApplication<MyTaskBoardApplication>(*args)
+    runApplication<MyTaskBoardApplication>(*args)
 }

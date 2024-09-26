@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @SpringBootTest
 @AutoConfigureMockMvc
 class CreateTaskEndpointTest(
-    @Autowired private val mockMvc: MockMvc
+    @Autowired private val mockMvc: MockMvc,
 ) {
     @Test
     fun `should retrieve all the the tasks`() {
@@ -30,7 +30,7 @@ class CreateTaskEndpointTest(
             .perform(
                 post("/task")
                     .contentType(APPLICATION_JSON_VALUE)
-                    .content(content)
+                    .content(content),
             )
             .andExpect(status().isCreated())
     }

@@ -4,5 +4,5 @@ enum class TaskStatus {
     TO_DO,
     IN_PROGRESS,
     DONE,
-    WONT_DO;
+    WONT_DO,
 }

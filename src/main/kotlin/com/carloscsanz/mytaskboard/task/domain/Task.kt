@@ -6,5 +6,5 @@ class Task(
     val status: TaskStatus,
 ) {
     constructor(name: String, description: String, status: String) :
-            this(TaskName(name), TaskDescription(description), TaskStatus.valueOf(status))
+        this(TaskName(name), TaskDescription(description), TaskStatus.valueOf(status))
 }

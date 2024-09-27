@@ -17,4 +17,6 @@ object InMemoryTaskRepository : TaskRepository {
     override fun findAll(): Set<Task> = database.toSet()
 
     override fun create(task: Task) = database.addLast(task)
+
+    override fun clear() = database.clear()
 }

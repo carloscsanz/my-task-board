@@ -1,5 +1,8 @@
 package com.carloscsanz.mytaskboard.task.api
 
+import com.carloscsanz.mytaskboard.task.domain.Task
+import com.carloscsanz.mytaskboard.task.domain.TaskRepository
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -13,7 +16,17 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @AutoConfigureMockMvc
 class GetTasksEndpointTest(
     @Autowired private val mockMvc: MockMvc,
+    @Autowired private val repository: TaskRepository,
 ) {
+    @BeforeEach
+    fun setup() {
+        repository.clear()
+        repository.create(Task("Task in Progress", "", "IN_PROGRESS"))
+        repository.create(Task("Task Completed", "", "DONE"))
+        repository.create(Task("Task Won't Do", "", "WONT_DO"))
+        repository.create(Task("Task To Do", "Work on a Challenge on devChallenges.io, learn TypeScript.", "TO_DO"))
+    }
+
     @Test
     fun `should retrieve all the the tasks`() {
         val expected = """

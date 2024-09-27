@@ -4,4 +4,6 @@ interface TaskRepository {
     fun findAll(): Set<Task>
 
     fun create(task: Task)
+
+    fun clear()
 }
